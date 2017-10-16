@@ -1,0 +1,1058 @@
+//============= VARIABLES =============//
+
+$titlePrimaryColor: #f92a61;
+$primaryFontColor: #474747;
+
+$firstColorBorder: #fff88c;
+$secondColorBorder: #93beff;
+$thirdColorBorder: #ff6b6b;
+$fourthColorBorder: #aaf442;
+$activeColorBorder: #eaeaea;
+
+$headerDark: 0.7;
+
+//============= END =============//
+
+
+
+//============= MIXINX =============//
+
+@mixin visibleIcon{
+    opacity: 0;
+    animation-name: visibility;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@mixin visibleText{
+    opacity: 0;
+    animation-name: aboutMeAnimation;
+    animation-duration: 1s; 
+    animation-fill-mode: forwards;
+}
+
+
+@mixin wrapperSettings{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@mixin colorStripes{
+    height: 2px;
+    margin: 0 auto;
+    background-image: -webkit-linear-gradient(left, #62f442, #62f442 12.5, #cdf441 12.5, #cdf441 25%, #f4e541 25%, #f4e541 37.5, #f44c41 37.5, #f44c41 50%, #f38ff7 50%, #f38ff7 62.5, #cb23ff 62.5, #cb23ff 75%, #47b2ff 75%, #47b2ff 87.5, #286cff 87.5, #286cff);
+    background-image: -moz-linear-gradient(left, #62f442, #62f442 12.5, #cdf441 12.5, #cdf441 25%, #f4e541 25%, #f4e541 37.5, #f44c41 37.5, #f44c41 50%, #f38ff7 50%, #f38ff7 62.5, #cb23ff 62.5, #cb23ff 75%, #47b2ff 75%, #47b2ff 87.5, #286cff 87.5, #286cff);
+    background-image: -o-linear-gradient(left, #62f442, #62f442 12.5, #cdf441 12.5, #cdf441 25%, #f4e541 25%, #f4e541 37.5, #f44c41 37.5, #f44c41 50%, #f38ff7 50%, #f38ff7 62.5, #cb23ff 62.5, #cb23ff 75%, #47b2ff 75%, #47b2ff 87.5, #286cff 87.5, #286cff);
+    background-image: linear-gradient(to right, #62f442, #62f442 12.5, #cdf441 12.5, #cdf441 25%, #f4e541 25%, #f4e541 37.5, #f44c41 37.5, #f44c41 50%, #f38ff7 50%, #f38ff7 62.5, #cb23ff 62.5, #cb23ff 75%, #47b2ff 75%, #47b2ff 87.5, #286cff 87.5, #286cff);;  
+}
+
+@mixin borderForJobs{
+    margin: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@mixin iconSettings{
+    font-size: 1.5em;
+    padding-top: 22px;
+}
+
+@mixin traingle{
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid $titlePrimaryColor;
+    position: relative;
+    top:32px;
+    left: 20px;
+
+    @media all and(max-width: 530px){
+        top: 22px;
+        left: 10px;
+    }
+}
+
+@mixin headerCircle{
+    width: 60px;
+    height: 60px;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+@mixin headerCircleFontAwesome{
+    color: white;
+    font-size: 30px;
+    padding-top: 12px;    
+}
+
+@mixin withAnimation{
+    animation-name: aboutMeAnimation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards; 
+}
+
+//============= END =============//
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Asap Condensed', sans-serif;
+}
+
+
+//============= HEADER SECTION =============//
+
+header{
+    height: 800px;
+    background: linear-gradient(rgba(0, 0, 0, $headerDark), rgba(0, 0, 0, $headerDark)), url('../images/bg-1.jpeg');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media all and(max-width: 1020px){
+        height: 700px;
+    }
+
+    .mobileHide{
+        @media all and(max-width: 1020px){
+            display: none;
+        }
+    }
+
+
+    .photoSection{
+        padding-top: 100px;
+        width: 400px;
+        margin: 0 auto;
+        opacity: 1;
+        animation-name: aboutMeAnimation;
+        opacity: 0;
+        animation-duration: 1s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+
+        @media all and(max-width: 1020px){
+            width: 100%;
+        }
+
+        h1:first-of-type{
+            padding-top: 70px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        h1:last-of-type{
+            padding-top: 20px;
+            color: white;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        // LEFT PHOTO //
+        .photo{
+            background-image: url('/images/me-2.jpg');
+            background-position: 0 0;
+            background-size: contain;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto;
+            border: 2px solid $titlePrimaryColor;
+            cursor: pointer;
+        }
+
+        a{
+            color: white;
+            text-decoration: none;
+            display: block;
+            width: 200px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            margin: 0 auto;
+            padding-top: 8px;
+            border-radius: 5px;
+            border: 1px solid white;
+            box-sizing: border-box;
+        }
+    }
+
+    // RIGHT PHOTO //
+    .photoSection:last-child{
+        .photo{
+            background-image: url('/images/me-1.jpg');
+        }
+    }
+
+    .middleMenu{
+        padding-top: 100px;
+        width: 200px;
+        text-align: center;
+        margin: 0 auto;
+
+        @media all and(max-width: 1020px){
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 300px;
+        }
+
+        h1{
+            color: white;
+            padding: 15px 0;
+            font-size: 1.5em;
+
+            @media all and(max-width: 1020px){
+                display: none;
+            }
+        }
+
+        h1:first-of-type{
+            @include visibleText;
+            animation-delay: 0.5s;
+        }
+
+        h1:nth-of-type(2){
+            @include visibleText;
+            animation-delay: 1s;        
+        }
+
+        h1:nth-of-type(3){
+            @include visibleText;
+            animation-delay: 1.5s;        
+        }
+
+        h1:last-of-type{
+            @include visibleText;
+            animation-delay: 2s;    
+        }
+
+        .aboutMeBtn, .portfolioBtn{
+            @include headerCircle;
+            background: $titlePrimaryColor;
+
+            i{
+                @include headerCircleFontAwesome;
+            }
+        }
+
+        .resumeBtn, .hireMeBtn{
+            @include headerCircle;
+            background: transparent;     
+            transition: all 0.5s;
+
+            &:hover{
+                background: $titlePrimaryColor;
+            }
+
+            i{
+                @include headerCircleFontAwesome;
+            }    
+        }
+
+        .aboutMeBtn{
+            @include visibleIcon;
+            animation-delay:0.5s;
+        }
+        .resumeBtn{
+            @include visibleIcon;
+            animation-delay:1s;             
+        }
+        .portfolioBtn{
+            @include visibleIcon;
+            animation-delay:1.5s;             
+        }
+        .hireMeBtn{
+            @include visibleIcon;
+            animation-delay:2s;             
+        }
+    }
+}
+
+h1{
+    color: $titlePrimaryColor;
+    text-transform: uppercase;
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper{
+    @include wrapperSettings;
+}
+
+//============= END =============//
+
+
+
+
+//============= ABOUT ME SECTION =============//
+
+section#aboutMe{
+    min-height: 300px;
+    padding-top: 50px;
+
+    .socialMedia{
+        width: 25em;
+        margin: 0 auto;
+        text-align: center;
+        animation-name: aboutMeAnimation;
+        animation-delay: 0.5s;
+        animation-duration: 1s;
+
+        h1{
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            padding-bottom: 1em;
+            font-size: 2.3em;
+            word-spacing: 0.2em;
+        }
+
+        .colorStripe{
+            width: 60%;
+            @include colorStripes;
+         }
+
+        i{
+            font-size: 5em;
+            margin: 0 auto;
+            padding-top: 0.2em;
+            margin: 10px;
+            color: $primaryFontColor;
+            transition: color 0.3s;
+
+            &:hover{
+                color: $titlePrimaryColor;
+            }
+        }
+    }
+
+    .aboutMeContent{
+        width: 800px;
+        animation-name: aboutMeAnimation;
+        animation-delay: 0.7s;
+        animation-duration: 1.5s;
+
+        @media all and(max-width: 1220px){
+            width: 90%;
+            margin: 0 auto;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        p{
+            margin: 0;
+            color: $primaryFontColor;
+            padding: 0px;
+            font-size: 1.2em;
+            word-spacing: 0.2em;
+        }
+
+        p:last-of-type{
+            margin-top: 1.5em;
+        }
+    }
+}
+
+//============= END =============//
+
+
+
+
+//============= SKILL SECTION =============//
+
+
+section#skills{
+    min-height: 400px;
+    width: 100%;   
+    background: linear-gradient(rgba(0, 0, 0, $headerDark), rgba(0, 0, 0, $headerDark)), url('../images/bg-2.jpeg');
+    background-position: 0 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media all and(max-width: 900px){
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+    }
+
+    .skillIcon{
+        max-width: 730px;
+        padding-top: 5.4em;
+        margin: auto;
+
+        @media all and(max-width: 900px){
+            width: 300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
+        .iconWrapper{
+            display: inline;
+            margin: 5px;
+
+            @media all and(max-width: 900px){
+               img{
+                   height: 50px;
+               }
+            }
+
+            img{
+                opacity: 0;
+            }
+
+            .showAnimation{
+                @include withAnimation;
+            }
+
+
+            &:hover > .tooltip{
+                display: block;
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        .iconWrapper:first-child{
+            img{
+                animation-delay: 3s;
+            }
+        }
+
+        .tooltip{
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            padding-top: 5px;
+            color: white;
+            text-align: center;
+            background: $titlePrimaryColor;
+            border-radius: 10px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: all 1s;
+            transform: translateY(-100px);
+            pointer-events: none;
+
+            &:before{
+                display: block;
+                content: " ";
+                width: 20px;
+                height: 20px;
+                background: $titlePrimaryColor;
+                position: absolute;
+                transform: rotate(-45deg);
+                bottom: -10px;
+                left: calc(50% - 10px);
+            }
+
+            p{
+                margin: 10px;
+                padding: 0;
+            }
+        }
+
+        img{
+            cursor: pointer;
+            height: 80px;
+            margin: 10px;
+        }     
+    }
+
+    .download{
+        max-width: 300px;
+        padding-top: 5.6em;
+        margin: 0 auto;
+
+        @media all and(max-width: 900px){
+            padding-bottom: 5.6em;
+            width: 100%;
+        }
+
+        h1{
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        p{
+            width: 220px;
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+
+            @media all and(max-width: 900px){
+                display: block;
+                margin: 30px auto;
+            }
+        }
+
+        a{
+            margin: 0 auto;
+            color: white;
+            text-decoration: none;
+            display: block;
+            width: 220px;
+            border-radius: 5px;
+            background: $titlePrimaryColor;
+            height: 30px;
+            box-sizing: border-box;
+            padding-left: 65px;
+            padding-top: 6px;
+
+            i{
+                margin: 0 5px;
+            }
+        }
+    }
+}
+
+//============= END =============//
+
+
+
+
+
+//============= REVIEW SECTION =============//
+
+section#review{
+    min-height: 350px;
+    padding-top: 50px;
+
+    @media all and(max-width: 1220px){
+        height: 600px;
+    }
+
+    .jobs-review{
+        padding-top: 1em;
+        width: 25em;
+        text-align: center;
+        margin: 0 auto;
+        transform: translateX(-1000px);
+        transition: all 1s;
+        
+        h1{
+            width: 250px;
+            margin: 0 auto;
+            padding-bottom: 1em;
+            font-size: 2.3em;
+            word-spacing: 0.2em;
+        }
+
+        p{
+            color: $primaryFontColor;
+            margin: 25px auto;
+            width: 250px;
+        }
+
+
+        .colorStripe{
+            width: 60%;
+            @include colorStripes;
+        }
+    }
+
+    .jobs-details{
+        position: relative;
+        margin: 0 auto;
+        width: 800px;
+        transform: translateX(1000px);
+        transition: all 1s;
+        
+
+        .job-icons{
+            margin: 0 auto;
+            text-align: center;
+
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                
+                li{
+                    display: inline-block;
+                    @include borderForJobs;
+                }
+            }
+
+
+            .education{
+                border: 2px solid $firstColorBorder;
+                i{
+                    @include iconSettings;
+                    color: $firstColorBorder;
+                }
+
+                @media all and(max-width: 520px){
+                    height: 50px;
+                    width: 50px;
+                    margin: 20px 5px;
+                    i{
+                        padding-top: 12px;
+                    }
+                }
+            }
+
+            .expirience{
+                @include borderForJobs;
+                border: 2px solid $secondColorBorder;     
+
+                i{
+                    @include iconSettings;
+                    color: $secondColorBorder;
+                }  
+
+                @media all and(max-width: 520px){
+                    height: 50px;
+                    width: 50px;
+                    margin: 20px 5px;
+                    i{
+                        padding-top: 12px;
+                    }
+                }         
+            }
+
+            .location{
+                @include borderForJobs;
+                border: 2px solid $thirdColorBorder;
+
+                i{
+                    @include iconSettings;
+                    color: $thirdColorBorder;
+                } 
+
+                @media all and(max-width: 520px){
+                    height: 50px;
+                    width: 50px;
+                    margin: 20px 5px;
+                    i{
+                        padding-top: 12px;
+                    }
+                }              
+            }
+
+            .contact{
+                @include borderForJobs;
+                border: 2px solid $fourthColorBorder;  
+
+                i{
+                    @include iconSettings;
+                    color: $fourthColorBorder;
+                } 
+
+                @media all and(max-width: 520px){
+                    height: 50px;
+                    width: 50px;
+                    margin: 20px 5px;
+                    i{
+                        padding-top: 12px;
+                    }
+                }            
+            }
+
+            .active-icon{
+                border: 2px solid $activeColorBorder;
+                    &:after{
+                        @include traingle;
+                    }
+            }     
+        }
+
+        .break-stripe{
+            width: 500px;
+            height: 2px;
+            margin: 0 auto;
+            background: $activeColorBorder;
+            position: relative;
+
+            @media all and(max-width: 530px){
+                width: 80%;
+            }
+        }
+
+        .job-content{
+            .education-content, .expirience-content, .location-content, .contact-content{
+                position: absolute;
+                opacity: 0;
+                width: 100%;
+                height: auto;
+                transition: all 0.5s;
+
+                h1{
+                    margin-top: 20px;
+                    text-align: center;
+                    color: black;
+
+                    @media all and(max-width: 530px){
+                        width: 90%;
+                        margin: 20px auto;
+                    }
+                }
+
+                p{
+                    text-align: center;
+                    span{
+                        color: $titlePrimaryColor;
+                    }
+                }
+            }
+
+            .active-content{
+                opacity: 1!important;
+            }
+        }
+    }
+
+    .slideRewievSection{
+        transform: translate(0)
+    }
+}
+
+//============= END =============//
+
+
+
+
+
+//============= BREAK SECTION =============//
+
+
+section#break{
+    min-height: 400px;
+    background: linear-gradient(rgba(0, 0, 0, $headerDark), rgba(0, 0, 0, $headerDark)), url('../images/bg-3.jpg');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+//============= END =============//
+
+
+
+
+
+
+//============= PORTFOLIO SECTION =============//
+
+section#portfolio{
+    min-height: 700px;
+    padding-top: 50px;
+
+    h1{
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+
+        @media all and(max-width: 920px){
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+
+    h1:last-of-type{
+        color: $titlePrimaryColor;
+        margin: 50px 0;
+    }
+
+    p{
+        text-align: center;
+        width: 100%;
+        color: $primaryFontColor;
+        margin: 5px auto;
+
+        @media all and(max-width: 920px){
+            width: 90%;
+        }
+    }
+
+    p:last-of-type{
+        margin-bottom: 3em;
+    }
+
+    .portfolioBlocks{
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 900px;
+        margin: 0 auto;
+        justify-content: center;
+        transform: scale(0);
+
+        @media all and(max-width: 920px){
+            width: 100%;
+        }
+
+
+        .block{
+            width: 300px;
+            height: 225px;
+            text-decoration: none;
+            perspective: 1000px;
+
+            @media all and(max-width: 400px){
+                margin: 10px auto;
+            }
+
+            &:hover .flipCard{
+                transform: rotateY(180deg);
+            }
+
+            .flipFront, .flipBack{
+                width: 300px;
+                height: 225px;
+                backface-visibility: hidden;
+                position: absolute;
+                top:0;
+                left: 0;
+            }
+
+            .flipCard{
+                transition: 0.5s;
+                transform-style: preserve-3d;
+                position: relative;
+
+                @media all and(max-width: 400px){
+                    transform: rotateY(180deg);
+                }
+            }
+
+            .flipFront{
+                z-index: 99;
+                transform: rotateY(0deg);
+                img{
+                    margin: 45px 60px;
+                    height: 60%;
+                    width: 60%;
+                }
+            }
+
+            .flipBack{
+                transform: rotateY(180deg);
+                background: $titlePrimaryColor;
+                z-index: 3;
+            }
+            
+            h2{
+                padding: 20px 0 10px 20px;
+                margin: 0;
+                color: white;
+            }
+
+            p{
+                text-align: left;
+                color: white;
+                margin: 0 20px;
+            }
+
+            ul{
+                margin-top: 5px;
+                padding-left: 20px;
+                li{
+                    list-style: none;
+                    color: white;
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+
+    .showAnimation{
+        @include withAnimation;              
+    }
+}
+
+
+//============= END =============//
+
+
+
+
+//============= FOOTER =============//
+
+footer{
+    min-height: 400px;
+    background: linear-gradient(rgba(0, 0, 0, $headerDark), rgba(0, 0, 0, $headerDark)), url('../images/bg-5.jpg');
+    background-position: 0 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    h1{
+        width: 100%;
+        margin: 50px 0 30px 0;
+        text-align: center;
+    }
+
+    p{
+        width: 100%;
+        padding: 0;
+        margin: 5px;
+        text-align: center;
+        color: white;
+
+        @media all and(max-width: 570px){
+            width: 270px;
+            margin: 10px auto;
+        }
+
+        a{
+            color: $titlePrimaryColor;
+        }
+    }
+
+    .contactSection{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 300px;
+        margin: 30px auto;
+
+        @media all and(max-width: 570px){
+            width: 270px;
+            margin: 0px auto;
+        }
+
+        a{
+            color: $titlePrimaryColor;
+            font-size: 40px;
+            margin: 0 auto;
+            animation-name: pulsar;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            position: relative;
+
+            &:hover .contactTooltip{
+                opacity: 1;
+            }
+
+            .contactTooltip{
+                font-size: 0.3em;
+                color: white;
+                position: absolute;
+                width: 100px;
+                height:30px;
+                background: $titlePrimaryColor;
+                top: -50px;
+                left: calc(50% - 50px);
+                border-radius: 3px;
+                opacity: 0;
+                pointer-events: none;
+                box-sizing: border-box;
+                padding: 5px 0 0 15px;
+                transition: all 1s;
+
+                &:after{
+                    content: ' ';
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    background: $titlePrimaryColor;
+                    transform: rotate(45deg);
+                    position: absolute;
+                    top: 25px;
+                    left: calc(50% - 5px);
+                }
+            }
+        }
+    }
+
+    .license{
+        width: 100%;
+        height: 20px;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        box-sizing: border-box;
+        text-align: center;
+        opacity: 0.5;
+
+        @media all and(max-width: 660px){
+            height: 60px;
+        }
+
+        p{
+            font-size: 12px;
+            margin: 0 auto;
+            padding: 3px;
+            word-spacing: 2px;
+            text-align: center;
+            a{
+                color: $titlePrimaryColor;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+//============= END =============//
+
+
+
+//============= GO TO TOP BUTTON =============//
+
+.goToTop{
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    background: $titlePrimaryColor;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    i{
+        color: white;
+        padding: 7px 0 0 8px;
+    }
+}
+
+
+//============= END =============//
+
+
+
+
+
+//============= KEYFRAMES ANIMATION =============//
+
+@keyframes visibility{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+
+@keyframes aboutMeAnimation{
+    0%{transform: scale(0); opacity: 0;};
+    50%{transform: scale(1.1); opacity: 1;};
+    80%{transform: scale(0.9);};
+    100%{transform: scale(1); opacity: 1;};
+}
+
+@keyframes pulsar{
+    0%{transform: scale(1);}
+    50%{transform: scale(0.9);}
+    100%{transform: scale(1);}
+}
+
+//============= END =============//
